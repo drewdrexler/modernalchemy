@@ -1,0 +1,122 @@
+.title {
+    color: rgba(228, 191, 117, 0.745);
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', ;
+    display: block;
+    padding-left: 170px;
+    letter-spacing: 3px;
+    text-shadow: 2px 1.25px 3px rgba(224, 216, 147, 0.87);
+    padding-bottom: 8px;
+    line-height: 27px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-style: groove;
+    border-color: rgba(255, 255, 255, .5);
+    border-width: 7px;
+    margin-top: -3px;
+    padding-top: 5px;
+}
+.titleenglish {
+    padding-left: 195px;
+}
+.userstyle {
+    color:red;
+    text-align: left;
+    vertical-align: bottom;
+    background-color: rgba(96, 84, 84, 0.65);
+    text-transform: uppercase;
+    padding-left: 3px;
+    padding-right: 3px;
+    letter-spacing: 1px;
+    border-style: solid;
+    border-color: rgba(168, 158, 158, 0.6);
+    border-right:none;
+    border-width: 0.25px;
+}
+.cpustyle {
+    color: blue;
+    vertical-align: bottom;
+    background-color: rgba(186, 186, 186, 0.65);
+    padding-top: 3px;
+    margin-top: -2px;
+    margin-bottom: 1px;
+    font-size:18px;
+    line-height: 25px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+    padding-left:3px;
+    font-weight: bold;
+    font-style: oblique;
+    letter-spacing: 0.5px;
+    box-shadow: 0px 1px 2px black;
+    
+}
+.chatbox {
+    justify-self: center;
+    vertical-align: bottom;
+    height:fit-content;
+    padding-right: 1px;
+    padding-left: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-style: 0;
+    border-width: 5px;
+    border-radius: 3px;
+    border-color: rgba(172, 172, 172, 0.7);
+    margin-top: -1px;
+    border-width: 4px;
+}
+.screengrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 1080px;
+    margin-top: -6px;
+}
+.bodyblood {
+    background-image: url(leatherblood.png);
+}
+.chatlog{
+    height: 625px;
+    text-align: center;
+    overflow:hidden;
+    border-style: groove;
+    border-color: rgba(255, 255, 255, .5);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-width: 10px;
+}
+.textbox {
+    height: 25px;
+    border-style: ridge;
+    border-color: rgba(210, 198, 89, 1);
+    border-width: 7px;
+    border-radius: 4px;
+    width: 600px;
+    padding-left: 20px;
+    background-color: black;
+    color: red;
+    margin-top: 1px;
+    margin-left: 1.5px;
+    margin-bottom: -2px;
+    text-transform: uppercase;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 1.5px;
+    caret-color: red;
+    outline-style: none;
+}
+.responseline {
+    display: inline-flex;
+}
+.subtitle {
+    color:bisque;
+    text-transform: uppercase;
+    margin-top: 300px;
+    text-shadow: 2px 2px 3px rgba(210, 198, 89, 0.87);
+}
+p {
+    margin-top: -1px;
+    margin-bottom: 3px;
+}
+body {
+    background-image: url(leather.png);
+    object-fit: none;
+    background-size: 100%;
+}

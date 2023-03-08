@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+    <div class="screengrid">
+        <div class="blankspace">
+        </div>
+        <div class="chatbox">
+            <div class="title" id="chatbox">Σύγχρονη Αλχημεία</div>
+            <div id="chatlog" class="chatlog">   
+                <div class= "subtitle" id= "sub">Type start and press enter to begin</div>
+            </div>
+            <div class="responseline">
+                <input class="textbox" id="responsebox" type="text" onchange="turn()">
+            </div>
+        </div>
+        <div class="blankspace">
+        </div>
+    </div>
+     <script>
+        let hasblood = "false";
+        let z = 0;
+
+        function turn() {
+            if (z == 0) {
+                gp0();
+            } else if (z == 1) {
+                gp1();
+            } else if (z == 2) {
+                gp2(); 
+            } else if (z == 3) {
+                gp3();
+            } else if (z == 4) {
+                gp4();
+            } else if (z == 5) {
+                gp5();
+            } else if (z == "b1") {
+                gpb1();
+            } else if (z == "b2") {
+                gpb2();
+            } else if (z == "b3") {
+                gpb3();
+            } else if (z == "b4") {
+                gpb4();
+            } else if (z == "b5") {
+                gpb5();
+            } else if (z == "b6") {
+                gpb6();
+            } else if (z == "b7") {
+                gpb7();
+            } else if (z == "b8") {
+                gpb8();
+            } else if (z == "b9") {
+                gpb9();
+            }
+        scrolltobottom();    
+
+        }
+        function getanswer() {
+          let textbox = document.getElementById('responsebox');
+          let answer = textbox.value;
+          let element = document.createElement('p') ;
+            element.innerText= answer;
+            element.classList.add("userstyle");
+            chatlog.appendChild(element);
+        }
+        function writeline() {
+                let line = document.createElement('p');
+                line.innerText = proposal;
+                line.classList.add("cpustyle");
+                chatlog.appendChild(line);
+                cleartext();
+        }
+
+        function gp0() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "start" || answer == "Start") {   
+                proposal= "You are sitting in your dorm room when you hear a knock at the door. Would you like to answer it?"
+                writeline();
+                let subtitle = document.getElementById('sub');
+                subtitle.remove();
+                addturn();
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gp1() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "yes" || answer =="answer" || answer == "answer door" || answer == "y") {    
+                proposal = "You answer the door, no one is there, but a leather bound book sits at your feet."
+                writeline();
+                addturn();
+            } else if (answer == "no" || answer == "n" || answer == "dont answer" || answer == "do not answer" || answer =="don't answer") {
+                proposal = "The knocking grows faster, you feel that you have no option but to answer. Would you like to answer the door?";
+                writeline();
+            } 
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        function gp2() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "pick up book" || answer == "pick up" || answer == "yes") {    
+                proposal = "You grab the book, it makes you feel strangely powerful. As you inspect it closer, a feeling of dread fills your body.";
+                writeline();
+                addturn();
+            } else if (answer == "look around") {
+                proposal = "You look to the right to see an empty hall, then quickly to the left where you spot the end of a robe disappear around the corner to the elevator lobby.  Startled, you look down at the book. Pick it up?";
+                writeline();
+            } else if ( answer== "no" || answer == "go back" || answer == "go inside") {
+                proposal = "You return to your room, frightened.  The book is on your desk now.";
+                writeline();
+            }
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        function gp3() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "open book" || answer == "open" || answer == "open it") {    
+                proposal = "You open the front cover, the page in front of you is blank.  An ornate typeface begins to appear on the page.  After several seconds an elegantly decorated page is visible, it reads: Advanced Modern Alchemy.  You can't help but notice the lack of author and publishing information.  Do you dare keep reading?";
+                writeline();
+                let element = document.getElementById('chatbox');
+                element.innerText = "Modern Alchemy";
+                element.classList.add('titleenglish');
+                addturn();
+            }  else if ( answer == "put book down" || answer == "put down") {
+                proposal = "You put the book down on your desk and try to process what just occured.  You begin to hear a faint screaming.";
+                writeline();
+                proposal = "The screaming gets louder and louder. You look over to your desk to realize the source of the howling.  The book wants to be opened.";
+                writeline();
+            }
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        function gp4() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "turn page" || answer == "yes" || answer == "keep reading") {    
+                proposal = "The next page is far less elegant, along the top, in large letters it reads KNOWLEDGE ISN'T FREE, NOR IS POWER.";
+                writeline();
+                proposal ="Beneath the ominous text is a large box, filled with a dirty smudge.";
+                writeline();
+                proposal= "Below the filthy box is a series of small icons.  The first icon appears to be a drop of blood.  To its right is gray metal bar with an arrow pointing out of it, the metal bar in the image is labeled Pb, must be talking about lead.  The third and final icon to the right displays a yellow pile of dust, clearly labeled to be sulfur.  Under the series of icons is some text it reads: CHOOSE CAREFULLY.";
+                writeline();
+                proposal = "Which will you pick: Blood, Lead or Sulfur?"
+                writeline();
+                addturn();
+            }  else if( answer == "put book down" || answer == "put down" || answer == "no" || answer == "n" ) {
+                proposal = "You place the book down and it begins to cry.  You look over at the book that is now whaling, it is bleeding all over your desk. Maybe if you looked away?";
+                writeline();
+            } else if (answer == "look away") {
+                proposal = "You look away for a moment to try to catch your breath, have you gone crazy?";
+                writeline();
+                proposal = "You feel something wet on your feet, you look down to see a river of blood flowing from the book.  It's cries are now all you can hear. You should do what it wants and keep reading."
+                writeline();
+            } else if (answer == "collect blood" || answer == "take blood" || answer == "get blood") {
+                hasblood = "true";
+                proposal = "You collect the book's blood in a vial.";
+                writeline();
+            }
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        
+        function gp5() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "blood" && hasblood == "true" ) {    
+                proposal = "You take the blood you collected from the book and pour it into the dirty box.  It appears to be absorbed into the book.  Your room and the book are now clean and dry.  The pages of the book now glow a crimson-red.";
+                writeline();
+                z = "b2";
+                document.body.classList.add('bodyblood');
+            }  else if ( answer == "blood" ) {
+                proposal = "You will need to acquire some blood. You look over at the knife on your dresser.";
+                writeline();
+                z = "b1";
+            } 
+            else if (answer == "sulfur" || answer =="lead" || answer == "pb"){
+                proposal = "You do not have access to sulfur or lead at this time. Try blood instead.";
+                writeline();
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        let hascreature = "false";
+        let killedroommate = "false";
+        let killedcreature = "false";
+        let killedstranger = "false";
+        let weirdo = "false";
+        function gpb1() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if ( answer == "get knife" || answer == "grab knife" || answer == "pick up knife" || answer == "go to knife" || answer == "knife") {
+                proposal = "You pick up the knife. What do you do next?";
+                writeline();
+            } else if (answer == "cut hand" || answer == "get blood" || answer == "get blood from self" || answer == "stab self" || answer == "cut self") {
+                proposal = "You make a small cut at the base of your palm.  You hold your bleeding hand to the page and aim the drops at the dirty box. You now understood why the page was so putrid.  After accepting your sacrifice, the book begins to glow crimson-red.  The wound on your hand healed as if through magic.  Everything was clean and calm again.  You felt compelled to keep reading.";
+                writeline(); 
+                document.body.classList.add('bodyblood');
+                z = "b2";
+            } else if (answer == "go to roommate" || answer == "kill roommate" || answer == "get blood from roommate"  || answer == "roommate") {
+                proposal = "You walk over to your roommates ajoined bedroom.  He is sound asleep, so you stab him to death in order to get some blood. ";
+                writeline();
+                proposal = "You start to sweat and panic. Why did you just do that?!";
+                writeline();
+                proposal = " You place his blood onto the page with the box, and the book begins to cheer and thank you.  The book begins to glow a crimson-red.  Your roommate's messy corpse was suddenly clean as it began shrinking down to the size of a doll.  You set the doll on his now spotless pillow and return to your room with the book.  You might as well keep reading.";
+                writeline();
+                document.body.classList.add('bodyblood');
+                z = "b2";
+                killedroommate = "true";
+            }
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        function gpb2() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "keep reading" || answer == "read" || answer == "read more") {    
+                proposal = "You turn the page to see it fill out with text:";
+                writeline();
+                proposal = "LESSON 1 MINOR CONJURINGS";
+                writeline();
+                proposal = "REQUIRED MATERIALS: 3 SMALL BONES, 1/4 CUP BLOOD (ANY), RESIDUAL ASH."
+                writeline();
+                proposal = "You wonder how you will get bones and blood.  You thought the nearby butcher shop may be a good option.";
+                writeline();
+                z = "b3";
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        function gpb3() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "go to butcher shop" || answer == "head to shop" || answer =="butcher shop"|| answer == "head to butcher shop" || answer == "leave" || answer == "go to store" || answer == "go to shop" || answer == "shop" ) {    
+                proposal = "You put on your shoes and begin to make your way to the butcher shop.  In your path there is a dead possum, likely there for several hours.  It reeks, but it could be a source of blood and bones. Take it? ";
+                writeline();
+            }  else if ( answer == "take it" || answer == "yes" || answer == "pick up" ) {
+                proposal = "You pick up the carcass and begin to walk back to your dorm, proud of yourself for saving so much time.";
+                writeline();
+                proposal = "As you enter the dorm hall you pass a group of students in the lobby, they look up and stare as you enter the room with a rotting possum.  Hopefully you don't know any of them.";
+                writeline();
+                proposal = "You hurry to your room, embarassed to be seen doing such a thing.  The book sits there glowing, begging to be opened.";
+                writeline();
+                z = "b4";
+                weirdo = "true";
+            } else if (answer == "no" || answer =="dont take" || answer == "don't take" || answer == "dont take possum" || answer == "dont take it" || answer == "don't take it") {
+                proposal = "You continue to the butcher shop where you tell the owner you need some bones and pig plood to make a special family dish.  Slightly confused, he grabs out a square of butcher paper and a plastic soup cup.";
+                writeline();
+                proposal = "You ask for a pint of blood and 3 chicken necks.  He wraps it up neatly and sends you home free of charge, so long as you promise to come back when you need real food.";
+                writeline();
+                proposal = "You head back to your dorm, eager to see what the book can do. You walk in and see the book on your desk glowing red, ready to be opened.";
+                writeline();
+                z = "b4";
+            }
+            else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        
+        function gpb4() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "open book" || answer == "open" || answer == "book"|| answer == "go to book") {    
+                proposal = "You open the book and read the instructions on how to combine the ingredients on the page.  First you burn a couple of pieces of notebook paper and rub the ash it produced onto the page.  You arrange the bones in a triangle below the book as it says.";
+                writeline();
+                proposal = "Next you pour half a cup of blood directly onto the page.  The book absorbs the blood, remaining dry somehow."
+                writeline();
+                proposal = "The bones begin to wiggle, then begin to move and wrap around themselves aggressively.  The bones twisted and tightened, producing a grotesque sound.  Eventually the structure of bones began to grow flesh.  "
+                writeline();
+                proposal = "After a while the writhing movement of the creature shifted to a slower wiggle.  In front of you sat a living blob of skin. Will you let it live?";
+                writeline();
+                z = "b5";
+            }  else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gpb5() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "yes" || answer == "let live" || answer == "let it live" || answer == "leave alive") {    
+                proposal = "You decide to let the creature live for now. Maybe it will be useful.";
+                writeline();
+                proposal = "You are vaguely reluctant to continue, but your curiosity is telling you to turn the page.";
+                writeline();
+                hascreature = "true";
+                z = "b6";
+            } else if (answer == "kill it" || answer == "kill" || answer == "no" || answer =="dont let it live") {
+                proposal = "Scared of what it might become, you stab the creature. It starts bleeding profusely, scared of a mess, you take it to the toilet and flush it down. ";
+                writeline();
+                proposal = "You were eager to turn the page and keep reading.";
+                writeline();
+                killedcreature = "true";
+                z = "b6";
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gpb6() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "turn page" || answer == "turn the page" || answer == "keep reading"|| answer == "next page") {    
+                proposal = "The next page is blank.  You wait for it to fill itself out like the other pages, but nothing happens.  You file through the book to see if the rest of the pages are also empty, one page stands out as particularly worn.  You flip to the worn page and it slowly fills with text:";
+                writeline();
+                proposal = "ADVANCED RESURRECTIONS";
+                writeline();
+                proposal = "REQUIRED MATERIALS: 12 LARGE BONES, 2 PINTS BLOOD (ANY), 1 LIFE.  MUST BE PERFORMED ABOVE BURIAL SITE OF TARGETED DECEASED.";
+                writeline();
+                proposal = "You will probably have to return to the butcher shop to get what you need.";
+                writeline();
+                z = "b7";
+            }  else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+        
+        function gpb7() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "return to butcher shop" || answer == "go to butcher shop" || answer == "return to shop"|| answer == "return to store" || answer == "go to store" || answer == "go to shop" || answer == "butcher shop" || answer == "return to butcher" || answer == "butcher" || answer == "shop") {    
+                proposal = "On your way to the shop you see a homeless man in a sleeping bag in a nearby alley.  You could save yourself the walk and kill him for his blood and bones.  Kill him or keep walking?";
+                writeline();
+            } else if (answer == "kill him" || answer == "kill") {
+                proposal = "You walk into the dark alley where you stand over his sleeping body.  This feels way too natural, what has this book done to you?";
+                writeline(); 
+                proposal = "You stab and cut him into managable chunks.  You fit the pieces of him that you can in your backpack and leave the rest of him in his sleeping bag.  You zip up the sleeping bag. Surely no one will notice.";
+                writeline();
+                proposal = "You head back to the dorms, as you approach the front door you notice that blood has soaked through your bookbag and turned it red.  You enter the front door, luckily no one is present in the lobby.";
+                writeline();
+                proposal = "You hear a drop of blood splatter on the floor next to you, you do your best to rub it into the carpet before hurrying back to your room.  You go to pick up the book.";
+                writeline();
+                killedstranger = "true";
+                z = "b8";
+            } else if(answer == "keep walking") {
+                proposal = "You keep walking to the shop and get what you need swiftly.  The shop keeper gives you some free bacon on account of your 'Vibes.'  Good thing you didn't kill that guy.";
+                writeline();
+                proposal = "You walk into your room and look over at the book, you go to pick it up.";
+                writeline();
+                z = "b8";
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gpb8() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "pick up" || answer == "pick up book" || answer == "grab book" || answer == "book" || answer == "pick it up" || answer == "get book" ) {    
+                proposal = "You re-read the line : MUST BE PERFORMED ABOVE BURIAL SITE OF TARGETED DECEASED.";
+                writeline();
+                proposal = "Your sister was buried at the cemetery not far from here.  You miss her so much.";
+                writeline();
+                proposal = "You knew what you had to do."
+                writeline();
+                z = "b9";
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gpb9() {
+            getanswer();
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (answer == "go to graveyard" || answer == "go to sisters grave" || answer == "go to sister's grave" || answer == "graveyard" || answer == "sister" || answer == "go to grave" ) {    
+                gpbfinalturn();
+                proposal = "Thanks for playing the demo.  Full Endings and Sulfur/Lead Storylines Coming Soon!";
+                writeline();
+                z = "gameoverblood";
+            } else {
+                proposal = "I do not understand.";
+                writeline();
+            }
+        }
+
+        function gpbfinalturn() {
+            let textbox = document.getElementById('responsebox');
+            let answer = textbox.value;
+            if (killedroommate == "true" && weirdo =="true" && killedcreature == "true" && killedstranger == "true") {    
+                proposal = "Secret Ending 0/5";
+                writeline();
+            } else if (weirdo == "true" && killedcreature == "true" && killedstranger == "true") {
+                proposal = "Mega-Bad Ending 1/5";
+                writeline();
+            } else if (killedcreature == "true" && killedstranger == "false") {
+                proposal = "No Life to Give.....";
+                writeline();
+                proposal = "Bad Ending 2/5";
+                writeline();
+            }  else if (killedstranger == "true") {
+                proposal = "Killer Ending 3/5";
+                writeline();
+            } else if (weirdo == "true") {
+                proposal = "Weirdo Ending 4/5";
+                writeline();
+            } else {
+                proposal = "Normal Ending 5/5";
+                writeline();
+            }
+        }
+
+
+        function addturn() {
+            z++;
+        }
+        
+        function cleartext() {
+            document.getElementById('responsebox').value = "";
+        }
+        function scrolltobottom() {
+            chatlog.scrollTop = chatlog.scrollHeight;
+        }
+       
+        
+
+     </script> 
+</body>
+
+</html>
